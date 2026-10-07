@@ -5,6 +5,8 @@ import Cart from "./components/Cart";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import Register from "./components/Register";
+import Reducer from "./components/Reducer";
+import ProductAdmin from "./components/ProductAdmin";
 
 const routes = createBrowserRouter([
   {
@@ -30,6 +32,15 @@ const routes = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+      },
+      {
+        path: "reducer",
+        element: <Reducer />,
+      },
+
+      {
+        path: "admin/products",
+        element: <ProductAdmin />,
       },
     ],
   },

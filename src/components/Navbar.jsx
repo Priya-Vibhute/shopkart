@@ -63,10 +63,18 @@ function Navbar() {
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="#">
-                    Action
-                  </a>
+                  <Link class="dropdown-item" to={"reducer"}>
+                    useReducer Example
+                  </Link>
                 </li>
+
+                <li>
+                  <Link class="dropdown-item" to={"admin/products"}>
+                    Admin
+                  </Link>
+                </li>
+
+
                 <li>
                   <a class="dropdown-item" href="#">
                     Another action

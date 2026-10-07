@@ -5,9 +5,9 @@ function Product() {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("https://fakestoreapi.com/products");
+      const response = await fetch("https://dummyjson.com/products");
       const data = await response.json();
-      setProducts(data);
+      setProducts(data.products);
     } catch (error) {}
   };
 
@@ -23,7 +23,7 @@ function Product() {
             {products.map((p) => (
               <div class="col">
                 <div class="card">
-                  <img src={p.image} class="card-img-top" alt="..." />
+                  <img src={p.images[0]} class="card-img-top" alt="..." />
                   <div class="card-body">
                     <h5 class="card-title">{p.title}</h5>
                     <p class="card-text">{p.description}</p>
