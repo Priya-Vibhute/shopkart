@@ -7,6 +7,9 @@ import Home from "./components/Home";
 import Register from "./components/Register";
 import Reducer from "./components/Reducer";
 import ProductAdmin from "./components/ProductAdmin";
+import PropsExample from "./components/PropsExample";
+import S from "./components/propdrilling/S";
+import A from "./components/context/A";
 
 const routes = createBrowserRouter([
   {
@@ -41,6 +44,18 @@ const routes = createBrowserRouter([
       {
         path: "admin/products",
         element: <ProductAdmin />,
+      },
+      {
+        path: "props",
+        element: <PropsExample />,
+      },
+      {
+        path: "prop-drilling",
+        element: <S />,
+      },
+      {
+        path: "context-example",
+        element: <A />,
       },
     ],
   },

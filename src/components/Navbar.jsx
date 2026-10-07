@@ -74,6 +74,17 @@ function Navbar() {
                   </Link>
                 </li>
 
+                <li>
+                  <Link class="dropdown-item" to={"props"}>
+                    Props example
+                  </Link>
+                </li>
+
+                <li>
+                  <Link class="dropdown-item" to={"context-example"}>
+                   context examples
+                  </Link>
+                </li>
 
                 <li>
                   <a class="dropdown-item" href="#">

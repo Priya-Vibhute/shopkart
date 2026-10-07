@@ -8,17 +8,22 @@ function ProductAdmin() {
         return action.payload;
       case "DELETE":
         return prevState.filter((p) => action.payload != p.id);
+      case "SEARCH":
+        return prevState.filter((p) =>
+          p.title.toLowerCase().includes(action.payload.toLowerCase()),
+        );
     }
   };
-  const [products, dispatch] = useReducer(reducer, null); //change 2
 
-  const [searchTerm,setSearchTerm]=useState("")
+  const [products, dispatch] = useReducer(reducer, null);
+
+  const [searchTerm, setSearchTerm] = useState("");
 
   const fetchProducts = async () => {
     try {
       const response = await fetch("https://dummyjson.com/products");
       const data = await response.json();
-      dispatch({ type: "FETCH", payload: data.products }); // change 1
+      dispatch({ type: "FETCH", payload: data.products });
     } catch (error) {}
   };
 
@@ -28,13 +33,21 @@ function ProductAdmin() {
 
   return (
     <>
+      <h1>{searchTerm}</h1>
 
-    <h1>{searchTerm}</h1>
+      <input
+        type="text"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <button
+        className="btn btn-primary"
+        onClick={() => dispatch({ type: "SEARCH", payload: searchTerm })}
+      >
+        Search
+      </button>
 
-    <input type="text" value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)} />
-    <button className="btn btn-primary">Search</button>
-
-    <hr />
+      <hr />
       {products ? (
         <>
           <div class="row row-cols-1 row-cols-md-4 g-4">
