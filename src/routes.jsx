@@ -10,6 +10,7 @@ import ProductAdmin from "./components/ProductAdmin";
 import PropsExample from "./components/PropsExample";
 import S from "./components/propdrilling/S";
 import A from "./components/context/A";
+import M from "./components/M";
 
 const routes = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const routes = createBrowserRouter([
         path: "context-example",
         element: <A />,
       },
+      {
+        path:'optimization-examples',
+        element:<M/>
+      }
     ],
   },
 ]);

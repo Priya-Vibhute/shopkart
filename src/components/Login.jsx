@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { LoginContext } from "../LoginContext";
 
 function Login() {
+
+ const {login}=useContext(LoginContext);// 1
+
   const {
     register,
     handleSubmit,
@@ -10,8 +14,10 @@ function Login() {
 
   const onSubmit = (data) => {
     console.log(data);
+    login(data.email)// 2
   };
 
+ 
   return (
     <div>
       <form action="" onSubmit={handleSubmit(onSubmit)}>

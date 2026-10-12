@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { LoginContext } from "../LoginContext";
 
 function Navbar() {
+
+ const {user, isLoggedIn,logout}= useContext(LoginContext)
+
+
+
+
+
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
@@ -32,7 +40,18 @@ function Navbar() {
               </Link>
             </li>
 
+{/*     {isLoggedIn : <></> : <></>} */}
+
+            { isLoggedIn ? <> 
             <li class="nav-item">
+              <button class="nav-link" onClick={()=>logout()}>
+               logout
+              </button>
+            </li></> :
+            
+            <> 
+            
+             <li class="nav-item">
               <Link class="nav-link" to={"/login"}>
                 login
               </Link>
@@ -43,6 +62,12 @@ function Navbar() {
                 Register
               </Link>
             </li>
+            
+            
+            </>}
+
+
+           
 
             <li class="nav-item">
               <Link class="nav-link" to={"/cart"}>
@@ -83,6 +108,14 @@ function Navbar() {
                 <li>
                   <Link class="dropdown-item" to={"context-example"}>
                    context examples
+                  </Link>
+                </li>
+
+                {/* optimization-examples */}
+
+                   <li>
+                  <Link class="dropdown-item" to={"optimization-examples"}>
+                     optimization examples
                   </Link>
                 </li>
 

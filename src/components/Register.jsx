@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { LoginContext } from "../LoginContext";
 
 function Register() {
+
+  
   const {
     register,
     handleSubmit,

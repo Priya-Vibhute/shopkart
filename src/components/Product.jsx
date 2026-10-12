@@ -1,6 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { LoginContext } from "../LoginContext";
 
 function Product() {
+
+  
   const [products, setProducts] = useState(null);
 
   const fetchProducts = async () => {
@@ -19,6 +22,8 @@ function Product() {
     <>
       {products ? (
         <>
+
+       
           <div class="row row-cols-1 row-cols-md-4 g-4">
             {products.map((p) => (
               <div class="col">
