@@ -11,6 +11,7 @@ import PropsExample from "./components/PropsExample";
 import S from "./components/propdrilling/S";
 import A from "./components/context/A";
 import M from "./components/M";
+import ProductDetail from "./components/ProductDetail";
 
 const routes = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const routes = createBrowserRouter([
       {
         path:'optimization-examples',
         element:<M/>
+      },
+      {
+        path:'/products/detail/:id',
+        element:<ProductDetail/>
       }
     ],
   },

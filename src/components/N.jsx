@@ -1,12 +1,17 @@
 import React from 'react'
-
-function N() {
+// step 3
+function N({value,handleClick}) {
 
   console.log("N component")
 
 
   return (
-    <div>N</div>
+    <div>
+      <h2>N component {value}</h2>
+
+      {/* step 4 */}
+      <button onClick={handleClick}>CLick</button>
+    </div>
   )
 }
 
