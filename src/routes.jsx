@@ -12,11 +12,15 @@ import S from "./components/propdrilling/S";
 import A from "./components/context/A";
 import M from "./components/M";
 import ProductDetail from "./components/ProductDetail";
+import ErrorPage from "./components/ErrorPage";
+import Counter from "./components/Counter";
+import RefExample from "./components/RefExample";
 
 const routes = createBrowserRouter([
   {
     path: "",
     element: <Layout />,
+    
     children: [
       {
         index: true,
@@ -66,6 +70,19 @@ const routes = createBrowserRouter([
       {
         path:'/products/detail/:id',
         element:<ProductDetail/>
+      },
+      {
+        path:'demo',
+        element:<Counter/>,
+        // errorElement:<h1>Something went wrong</h1>,
+      },
+      {
+        path:'ref',
+        element:<RefExample/>
+      },
+      {
+        path:'*',
+        element:<ErrorPage/>
       }
     ],
   },

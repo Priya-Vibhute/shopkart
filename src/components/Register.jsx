@@ -10,13 +10,17 @@ function Register() {
     handleSubmit,
     formState: { errors },
     watch,
+    reset
   } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
+    reset()
   };
 
   const password = watch("password");
+
+  // console.log(errors)
 
   return (
     <div className="container mt-5">

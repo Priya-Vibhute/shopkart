@@ -6,6 +6,10 @@ function Product() {
 
   
   const [products, setProducts] = useState(null);
+  
+  // http://localhost:5173/products?category=electronics
+  const [searchParams,setSearchParams]=useSearchParams()
+  console.log(searchParams.get('category'))
 
   const fetchProducts = async () => {
     try {
@@ -22,18 +26,33 @@ function Product() {
 
   return (
     <>
+
+    <button className="btn-primary" onClick={()=>setSearchParams({category:'electronics'})}>
+      Electronics
+    </button>
+
+
+    <button className="btn-primary" onClick={()=>setSearchParams({category:'jewelery'})}>
+      jewelery
+    </button>
+
+
       {products ? (
         <>
 
        
           <div class="row row-cols-1 row-cols-md-4 g-4">
-            {products.map((p) => (
+            {products              
+            .filter(p=>searchParams.get('category')? 
+            searchParams.get('category')==p.category : true)
+            .map((p) => (
               <div class="col">
                 <div class="card">
                   <img src={p.image} class="card-img-top" alt="..." />
                   <div class="card-body">
                     <h5 class="card-title">{p.id} {p.title}</h5>
                     <p class="card-text">{p.description}</p>
+                    <p class="card-text">{p.category}</p>
                     <Link className="btn btn-primary" to={`/products/detail/${p.id}`}>View detail</Link>
                   </div>
                 </div>

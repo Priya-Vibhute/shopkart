@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 
 function Counter() {
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(0);
   const [count1, setCount1] = useState(0);
+
+  if(count==3)
+  {
+      throw new Error("Count is equal to three")
+  }
 
   useEffect(() => {
     // console.log("useEffect Hook");
